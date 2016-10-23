@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h3>Tilføj person</h3>
+    <form method="post" action="/add_person">
+        <input name="name" type="text" placeholder="name"/>
+        <input name="email" type="text" placeholder="email"/>
+        <input type="submit"/>
+    </form>
+
+    <h3> Generere ny cirkel </h3>
+
+    <form method="post" action="/make_new_wheel">
+        <input name="year" placeholder="årstal" type="number">
+        <input type="submit">
+    </form>
+
+
+    {% for y in giftes %}
+        <h3>{{ y }}</h3>
+        <table class="w3-table-all w3-hoverable">
+            <tr>
+                <th>Giver</th>
+                <th>Modtager</th>
+            </tr>
+            {% for p in giftes[y] %}
+                <tr>
+                    <td>{{ p.personFrom }}</td>
+                    <td>{{ p.personTo }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+
+
+{% endblock %}

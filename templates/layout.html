@@ -1,0 +1,40 @@
+<!doctype html>
+<title>Julegave Hjul</title>
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+
+
+<script src="{{ url_for('static', filename="snowstorm.js") }}"></script>
+<style>
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+</style>
+
+
+
+<div class=page>
+  <h1>Julegave hjul</h1>
+
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+
+
+</div>
